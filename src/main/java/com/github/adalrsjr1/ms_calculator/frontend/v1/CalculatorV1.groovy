@@ -15,8 +15,8 @@ import org.slf4j.LoggerFactory
 @Path("/calculator/v1")
 class CalculatorV1 {
 
-	//"http://localhost:8880/operator/"
-	private static final String DESTINATION = System.getProperty("destination") 
+	private static final String DST_PORT = System.getProperty("dst_port")
+	private static final String DST_HOST = System.getProperty("dst_host")
 	
 	private static final Logger logger = LoggerFactory.getLogger(CalculatorV1.class);
 	
@@ -40,7 +40,7 @@ class CalculatorV1 {
 			loops = 0
 		}
 
-		URL url = new URL(DESTINATION + "${op}/${a}/${b}")
+		URL url = new URL("http://$DST_HOST:$DST_PORT/operator/${op}/${a}/${b}")
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection()
 		connection.setDoOutput(true)
 		connection.setInstanceFollowRedirects(true)
