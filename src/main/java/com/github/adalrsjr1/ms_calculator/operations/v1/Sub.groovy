@@ -12,11 +12,13 @@ import javax.ws.rs.core.Response
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-@Path("calculator/v1")
+@Path("operation/v1")
 public class Sub {
 
 	private static final Logger log = LoggerFactory.getLogger(Sum.class);
 
+	private static final String DESTINATION = "http://localhost:8888/operation/v1"
+	
 	@GET
 	@Path("sub/{a}/{b}")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -42,7 +44,7 @@ public class Sub {
 			loops = 0
 		}
 
-		URL url = new URL("http://localhost:8888/calculator/v1/sum/${a}/${-b}")
+		URL url = new URL(DESTINATION + "/sum/${a}/${-b}")
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection()
 		connection.setDoOutput(true)
 		connection.setInstanceFollowRedirects(true)

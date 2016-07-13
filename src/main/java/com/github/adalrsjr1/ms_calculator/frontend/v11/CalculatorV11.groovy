@@ -1,4 +1,4 @@
-package com.github.adalrsjr1.ms_calculator.frontend.v1
+package com.github.adalrsjr1.ms_calculator.frontend.v11
 
 import javax.ws.rs.GET
 import javax.ws.rs.Path
@@ -13,9 +13,9 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 class CalculatorV11 {
-	private static final String DESTINATION = "http://localhost:8888/calculator/v1.1/"
+	private static final String DESTINATION = "http://localhost:8880/calculator/v1.1/"
 	
-	private static final Logger logger = LoggerFactory.getLogger(CalculatorV1.class);
+	private static final Logger logger = LoggerFactory.getLogger(CalculatorV11.class);
 	
 	
 	Response operation(HttpHeaders headers, String op, double a, double b) {

@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-@Path("calculator/v1")
+@Path("operation/v1")
 class Mult {
 
 	private static final Logger log = LoggerFactory.getLogger(Mult.class);

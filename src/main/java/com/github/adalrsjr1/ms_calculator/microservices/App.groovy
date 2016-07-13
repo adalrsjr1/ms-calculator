@@ -1,4 +1,4 @@
-package com.github.adalrsjr1.ms_calculator;
+package com.github.adalrsjr1.ms_calculator.microservices;
 
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors;

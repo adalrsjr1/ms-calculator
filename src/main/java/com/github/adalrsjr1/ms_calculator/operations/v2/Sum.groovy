@@ -12,10 +12,12 @@ import javax.ws.rs.core.Response
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-@Path("calculator/v1")
+@Path("operation/v1")
 public class Sum {
 
 	private static final Logger log = LoggerFactory.getLogger(Sum.class);
+	
+	private static final String DESTINATION = "http://localhost:8888/calculator/v1"
 	
 	@GET
 	@Path("sum/{a}/{b}")

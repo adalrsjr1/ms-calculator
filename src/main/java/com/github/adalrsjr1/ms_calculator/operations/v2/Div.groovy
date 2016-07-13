@@ -12,10 +12,12 @@ import javax.ws.rs.core.Response
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-@Path("calculator/v1")
+@Path("operation/v1.1")
 class Div {
 	private static final Logger log = LoggerFactory.getLogger(Div.class);
 
+	private static final String DESTINATION = "http://localhost:8888/operation/v1"
+	
 	@GET
 	@Path("div/{a}/{b}")
 	@Produces(MediaType.TEXT_PLAIN)

@@ -14,10 +14,12 @@ import javax.ws.rs.core.Response
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-@Path("calculator/v1")
+@Path("operation/v1")
 class Pow {
 
 	private static final Logger log = LoggerFactory.getLogger(Pow.class);
+	
+	private static final String DESTINATION = "http://localhost:8888/calculator/v1"
 	
 	@GET
 	@Path("pow/{a}/{b}")

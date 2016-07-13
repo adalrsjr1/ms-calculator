@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory
 @Path("/calculator/v1")
 class CalculatorV1 {
 
-	private static final String DESTINATION = "http://localhost:8888/calculator/v1/"
+	private static final String DESTINATION = "http://localhost:8880/calculator/v1/"
 	
 	private static final Logger logger = LoggerFactory.getLogger(CalculatorV1.class);
 	
