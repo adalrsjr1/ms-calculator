@@ -40,7 +40,7 @@ class CalculatorV1 {
 			loops = 0
 		}
 
-		URL url = new URL("http://$DST_HOST:$DST_PORT/operator/${op}/${a}/${b}")
+		URL url = new URL("http://$DST_HOST:$DST_PORT/operation/${op}/${a}/${b}")
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection()
 		connection.setDoOutput(true)
 		connection.setInstanceFollowRedirects(true)
@@ -106,7 +106,7 @@ class CalculatorV1 {
 					@PathParam("a") double a,
 					@PathParam("b") double b) {
    
-		   operation(headers, "mult", a, b);
+		   operation(headers, "div", a, b);
 	   }
 					
 }

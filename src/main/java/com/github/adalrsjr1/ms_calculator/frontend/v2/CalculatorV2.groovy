@@ -38,7 +38,7 @@ class CalculatorV2 {
 			loops = 0
 		}
 
-		URL url = b ? new URL("http://$DST_HOST:$DST_PORT/operator/${op}/${a}/${b}") : new URL("http://$DST_HOST:$DST_PORT/operator/${op}/${a}")
+		URL url = b ? new URL("http://$DST_HOST:$DST_PORT/operation/${op}/${a}/${b}") : new URL("http://$DST_HOST:$DST_PORT/operation/${op}/${a}")
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection()
 		connection.setDoOutput(true)
 		connection.setInstanceFollowRedirects(true)
@@ -104,7 +104,7 @@ class CalculatorV2 {
 			@PathParam("a") double a,
 			@PathParam("b") double b) {
 
-		operation(headers, "mult", a, b);
+		operation(headers, "div", a, b);
 	}
 
 	@GET
@@ -114,7 +114,7 @@ class CalculatorV2 {
 			@PathParam("a") double a,
 			@PathParam("b") double b) {
 
-		operation(headers, "mult", a, b);
+		operation(headers, "pow", a, b);
 	}
 
 	@GET
