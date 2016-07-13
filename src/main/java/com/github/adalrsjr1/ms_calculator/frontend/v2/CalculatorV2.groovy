@@ -13,7 +13,8 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 class CalculatorV2 {
-	private static final String DESTINATION = "http://localhost:8880/calculator/v2/"
+		//"http://localhost:8880/operator/"
+	private static final String DESTINATION = System.getProperty("destination") 
 
 	private static final Logger logger = LoggerFactory.getLogger(CalculatorV2.class);
 
