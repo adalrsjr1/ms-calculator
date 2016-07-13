@@ -34,7 +34,7 @@
 		<!-- <Logger name="com.adalrsjr.processor_unit.fluentd.subscriber.TraceSubscriber" level="ALL">
 			<AppenderRef ref="JeroMQAppender" />
 		</Logger> -->
-		<Root level="OFF">
+		<Root level="ALL">
 			<AppenderRef ref="Console" />
 		</Root>
 	</Loggers>

@@ -24,9 +24,11 @@ public class App
 	
     public static void main( String[] args )
     {
+		println  InetAddress.getLocalHost().getHostName()
+		
 		tPool.execute({
 			ResourceConfig config = new ResourceConfig()
-			config.packages("com.github.adalrsjr1.ms_calculator.operations")
+			config.packages("com.github.adalrsjr1.ms_calculator.operations.v1")
 			ServletHolder servlet = new ServletHolder(new ServletContainer(config))
 			
 			Server server = new Server(8888)
@@ -44,7 +46,7 @@ public class App
 		
 		tPool.execute({
 			ResourceConfig config = new ResourceConfig()
-			config.packages("com.github.adalrsjr1.ms_calculator.operations")
+			config.packages("com.github.adalrsjr1.ms_calculator.operations.v1")
 			ServletHolder servlet = new ServletHolder(new ServletContainer(config))
 			
 			Server server = new Server(8889)

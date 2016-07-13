@@ -1,4 +1,4 @@
-package com.github.adalrsjr1.ms_calculator.operations
+package com.github.adalrsjr1.ms_calculator.operations.v1
 
 import javax.ws.rs.GET
 import javax.ws.rs.Path
@@ -12,19 +12,16 @@ import javax.ws.rs.core.Response
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-import com.github.adalrsjr1.ms_calculator.util.Util;
-
-@Path("calculator")
-public class Sub {
-
-	private static final Logger log = LoggerFactory.getLogger(Sum.class);
+@Path("calculator/v1")
+class Div {
+	private static final Logger log = LoggerFactory.getLogger(Div.class);
 
 	@GET
-	@Path("sub/{a}/{b}")
+	@Path("div/{a}/{b}")
 	@Produces(MediaType.TEXT_PLAIN)
-	Response sub(@Context HttpHeaders headers,
-				 @PathParam("a") double a,
-				 @PathParam("b") double b) {
+	Response div(@Context HttpHeaders headers,
+			@PathParam("a") double a,
+			@PathParam("b") double b) {
 
 		String uuid
 		int loops
@@ -34,9 +31,9 @@ public class Sub {
 		else {
 			uuid = UUID.randomUUID()
 		}
-		
-		log.info ">>> [sub] uuid: $uuid"
-		
+
+		log.info ">>> [div] uuid: $uuid"
+
 		if(headers.requestHeaders.containsKey("X-Loops")) {
 			loops = Integer.parseInt(headers.requestHeaders["X-Loops"][0])
 		}
@@ -44,7 +41,7 @@ public class Sub {
 			loops = 0
 		}
 
-		URL url = new URL("http://localhost:8888/calculator/sum/${a}/${-b}")
+		URL url = new URL("http://localhost:8888/calculator/v1/mult/${a}/${1/b}")
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection()
 		connection.setDoOutput(true)
 		connection.setInstanceFollowRedirects(true)
@@ -52,7 +49,7 @@ public class Sub {
 		connection.setRequestProperty("Content-Type", "text/plain")
 		connection.setRequestProperty("X-UUID", uuid)
 		connection.setRequestProperty("X-Loops", "$loops")
-		
+
 		BufferedReader reader = new BufferedReader(new InputStreamReader(connection.inputStream, "UTF-8"))
 		StringBuffer sb = new StringBuffer()
 		for (String line; (line = reader.readLine()) != null;) {
@@ -60,17 +57,16 @@ public class Sub {
 		}
 
 		loops = Integer.parseInt(connection.getHeaderField("X-Loops")) + 1
-		
-		
+
+
 		int responseCode = connection.getResponseCode()
 		connection.disconnect()
 		reader.close()
-		
+
 		Response.status(responseCode)
 				.entity(sb.toString())
 				.header("X-UUID", uuid)
 				.header("X-Loops", loops)
 				.build()
 	}
-
 }
