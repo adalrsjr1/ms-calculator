@@ -63,6 +63,7 @@ local.properties
 .mtj.tmp/
 
 # Package Files #
+/jars
 *.jar
 *.war
 *.ear
